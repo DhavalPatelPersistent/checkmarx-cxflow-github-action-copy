@@ -101,6 +101,15 @@ inputs:
     required: false
     description: Java options will be passed to java
     default: -XX:MaxRAMPercentage=75.0
+  ######### Filter Properties ##########
+  severity: 
+    required: true
+    description: Filter code scan report on Severity
+    default: ''
+  category: 
+    required: true
+    description: Filter code scan report on Category
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -128,6 +137,8 @@ runs:
     - ${{ inputs.cxgo_base_url }}
     - ${{ inputs.cxgo_portal_url }}
     - ${{ inputs.java_opts }}
+    - ${{ inputs.severity }}
+    - ${{ inputs.category }}
 
   env:
     TEAM: "${{ inputs.team }}"
@@ -154,6 +165,8 @@ runs:
     CXGO_BASE_URL: ${{ inputs.cxgo_base_url }}
     CXGO_PORTAL_URL: ${{ inputs.cxgo_portal_url }}
     JAVA_OPTS: ${{ inputs.java_opts }}
+    SEVERITY: ${{ inputs.severity }}
+    CATEGORY: ${{ inputs.category }}
 
 branding:
   icon: 'check'
