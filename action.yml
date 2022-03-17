@@ -110,6 +110,44 @@ inputs:
     required: true
     description: Filter code scan report on Category
     default: ''
+  ######### Jira Properties ##########
+  jira_url:
+    required: false
+    description: 'Jira URL'
+    default: ''
+  jira_username:
+    required: false
+    description: 'Jira Username'
+    default: ''
+  jira_token:
+    required: false
+    description: 'Jira Token'
+    default: ''
+  jira_project:
+    required: false
+    description: 'Jira Project'
+    default: ''
+  jira_issue_type:
+    required: false
+    description: 'Jira Issue Type'
+    default: ''
+  jira_open_transition:
+    required: false
+    description: 'Jira Open Transition'
+    default: 'https://api.checkmarx.net'
+  jira_close_transition:
+    required: false
+    description: 'Jira Close Transition'
+    default: ''
+  jira_open_status:
+    required: false
+    description: 'Jira Open Status'
+    default: ''
+  jira_closed_status:
+    required: false
+    description: 'Jira Closed Status'
+    default: ''
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -139,6 +177,15 @@ runs:
     - ${{ inputs.java_opts }}
     - ${{ inputs.severity }}
     - ${{ inputs.category }}
+    - ${{ inputs.jira_url }}
+    - ${{ inputs.jira_username }}
+    - ${{ inputs.jira_token }}
+    - ${{ inputs.jira_project }}
+    - ${{ inputs.jira_issue_type }}
+    - ${{ inputs.jira_open_transition }}
+    - ${{ inputs.jira_close_transition }}
+    - ${{ inputs.jira_open_status }}
+    - ${{ inputs.jira_closed_status }}
 
   env:
     TEAM: "${{ inputs.team }}"
@@ -167,6 +214,15 @@ runs:
     JAVA_OPTS: ${{ inputs.java_opts }}
     SEVERITY: ${{ inputs.severity }}
     CATEGORY: ${{ inputs.category }}
+    JIRA_URL: ${{ inputs.jira_url }}
+    JIRA_USERNAME: - ${{ inputs.jira_username }}
+    JIRA_TOKEN: - ${{ inputs.jira_token }}
+    JIRA_PROJECT: - ${{ inputs.jira_project }}
+    JIRA_ISSUE_TYPE: - ${{ inputs.jira_issue_type }}
+    JIRA_OPEN_TRANSITION: - ${{ inputs.jira_open_transition }}
+    JIRA_CLOSE_TRANSITION: - ${{ inputs.jira_close_transition }}
+    JIRA_OPEN_STATUS: - ${{ inputs.jira_open_status }}
+    JIRA_CLOSED_STATUS: - ${{ inputs.jira_closed_status }}
 
 branding:
   icon: 'check'
