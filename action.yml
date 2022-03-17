@@ -216,13 +216,13 @@ runs:
     CATEGORY: ${{ inputs.category }}
     JIRA_URL: ${{ inputs.jira_url }}
     JIRA_USERNAME: ${{ inputs.jira_username }}
-    JIRA_TOKEN: - ${{ inputs.jira_token }}
-    JIRA_PROJECT: - ${{ inputs.jira_project }}
-    JIRA_ISSUE_TYPE: - ${{ inputs.jira_issue_type }}
-    JIRA_OPEN_TRANSITION: - ${{ inputs.jira_open_transition }}
-    JIRA_CLOSE_TRANSITION: - ${{ inputs.jira_close_transition }}
-    JIRA_OPEN_STATUS: - ${{ inputs.jira_open_status }}
-    JIRA_CLOSED_STATUS: - ${{ inputs.jira_closed_status }}
+    JIRA_TOKEN: ${{ inputs.jira_token }}
+    JIRA_PROJECT: ${{ inputs.jira_project }}
+    JIRA_ISSUE_TYPE: ${{ inputs.jira_issue_type }}
+    JIRA_OPEN_TRANSITION: ${{ inputs.jira_open_transition }}
+    JIRA_CLOSE_TRANSITION: ${{ inputs.jira_close_transition }}
+    JIRA_OPEN_STATUS: ${{ inputs.jira_open_status }}
+    JIRA_CLOSED_STATUS: ${{ inputs.jira_closed_status }}
 
 branding:
   icon: 'check'
