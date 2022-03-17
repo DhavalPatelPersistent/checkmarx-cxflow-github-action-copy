@@ -134,7 +134,7 @@ inputs:
   jira_open_transition:
     required: false
     description: 'Jira Open Transition'
-    default: 'https://api.checkmarx.net'
+    default: ''
   jira_close_transition:
     required: false
     description: 'Jira Close Transition'
@@ -215,7 +215,7 @@ runs:
     SEVERITY: ${{ inputs.severity }}
     CATEGORY: ${{ inputs.category }}
     JIRA_URL: ${{ inputs.jira_url }}
-    JIRA_USERNAME: - ${{ inputs.jira_username }}
+    JIRA_USERNAME: ${{ inputs.jira_username }}
     JIRA_TOKEN: - ${{ inputs.jira_token }}
     JIRA_PROJECT: - ${{ inputs.jira_project }}
     JIRA_ISSUE_TYPE: - ${{ inputs.jira_issue_type }}
